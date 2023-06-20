@@ -1,0 +1,28 @@
+.appartments {
+    position: relative;
+
+    &::before {               // слева
+        content: "III";
+        right: calc(50% + 555px); // половина экрана плюс половина контейнера
+        transform: translate(50%, 0%); // сдвинуть на половину фигурки
+        @include decorNumber;
+    }
+}
+
+.appartments_title {
+    margin-bottom: 88px;
+
+    @include mediaTablet {
+        margin-bottom: 44px;
+    }
+}
+
+.appartments_cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    @include mediaTablet {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    }
+}

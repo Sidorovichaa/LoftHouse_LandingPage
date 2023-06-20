@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700&family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: $font-main;
+    background-color: $dark;
+    color: $white;
+    font-size: 16px;
+}
+    
+a {
+    color: $white;
+    &:hover {
+        color: $accent;
+        transition: color 0.2s ease-in; // меняет цвет плавно
+    }
+}
+
+.container {
+    margin: 0 auto; // по центру
+    padding: 0 15px;  // по 15 слева и справа
+    max-width: 1140px; // 1110 размер контейнера плюс по 15 padding, max-width вместо width для мобильной адаптации
+
+    &--sm {
+        max-width: 840px;
+    }
+   }
+
+.text-right {
+    text-align: right;
+}
+
+.visually-hidden {
+    /* Contain text within 1px box*/
+    height: 1px;
+    overflow: hidden;
+    width: 1px;
+
+    /* Keep the layout*/
+    position: absolute;
+
+    /* Remove any visible trace (e.g. background color)*/
+    clip: rect(1px 1px 1px 1px); /*IE6, IE7*/
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+
+    /* Prevent the screen reader to skip spaces between words*/
+    white-space: nowrap;
+}
+
+.none {
+    // прятать на время верстки
+    display: none !important; // перебивает другие свойства
+}
+
+.title-2 {
+    font-size: 36px;
+    font-family: $font-accent;
+    color: $accent;
+    font-weight: 700;
+
+    @include mediaTablet {
+        font-size: 28px;
+    }
+}
+
+.link-bold {
+    color: $accent;
+    font-weight: 700;
+}
+
+.no-scloll {
+    overflow-y: hidden;
+}

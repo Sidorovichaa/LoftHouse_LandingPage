@@ -1,0 +1,49 @@
+.benefits {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+
+    &::after{                // справа
+        content: "II";
+        left: calc(50% + 555px); // половина экрана плюс половина контейнера
+        transform: translate(-50%, 0%); // сдвинуть на половину фигурки
+        @include decorNumber;
+    }
+}
+
+.benefits_row {
+    display: flex;
+    column-gap: 70px;
+
+    @include mediaTablet{
+		display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 40px 30px;
+	}
+}
+
+.benefits_item {
+    text-align: center;
+}
+
+.benefits_item-img {
+    margin-bottom: 53px;
+
+    @include mediaTablet{
+		height: 60px;
+        width: 60px;
+        margin-bottom: 20px;
+
+	}
+}
+
+.benefits_item-text {
+    font-size: 20px;
+    line-height: 1.35; //  множитель 27/20
+    font-family: $font-secondary;
+
+    @include mediaTablet{
+		font-size: 16px;
+
+	}
+}

@@ -1,0 +1,74 @@
+.card {
+    overflow: hidden; // при увеличении картинка не выходит за пределы коробки
+    position: relative;
+    display: inline-block;
+    color: $white;
+
+    &::before {
+        content: ""; // чтобы псевдоэлемент отобразился
+
+        /* Overlay*/
+        position: absolute;
+        z-index: 6;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+       
+        background: linear-gradient(
+            180deg,
+            #242B33 0%,
+            rgba(36, 43, 51, 0) 0.01%,
+            $dark 100%
+            );
+    }
+
+    &::after {
+        opacity: 0;            // не видна рамка
+        content: "";
+        position: absolute;
+        z-index: 7;
+        left: 15px;
+        top: 15px;
+        right: 15px;
+        bottom: 15px;
+        border: 3px double rgba(255, 255, 255, 0.4);
+
+        transition: opacity 0.2s ease-in; // на свойство opacity
+    }
+
+    &:hover {
+        color: $white;
+    }
+
+    &:hover::after {
+        opacity: 1;            // видна рамка при наведени
+    }
+}
+
+.card_img {
+    position: relative;
+    z-index: 5;
+    transition: all 0.2s ease-in;  // на все свойства
+}
+
+.card:hover .card_img {
+    transform: scale(1.1); // увеличивается на 10% при наведении
+    filter: contrast(110%) brightness(1.2) saturate(1.2); // фильтр контрастнее ярче
+}
+
+
+.card_title {
+    position: absolute;
+    z-index: 9; // чтобы лежал выше overlay и можно было выделить и скопировать
+    left: 50px;
+    right: 20px;
+    bottom: 44px;
+    font-size: 24px;
+
+    @include mediaTablet{
+		font-size: 20px;
+        left: 30px;
+        bottom: 30px;
+	}
+}

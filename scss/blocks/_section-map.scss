@@ -1,0 +1,31 @@
+.section-map {
+    padding: 180px 0;
+    position: relative;
+
+    &::before {
+        // слева
+        content: "V";
+        right: calc(50% + 555px); // половина экрана плюс половина контейнера
+        transform: translate(50%, 0%); // сдвинуть на половину фигурки
+        @include decorNumber; // отличающиеся свойства писать после миксина
+        top: 180px; // ниже на 180
+        line-height: 1; // немного поднять
+
+        @include mediaTablet {
+            padding: 90px 0;
+        }
+    }
+}
+
+.section-map_title {
+    margin-bottom: 88px;
+
+    @include mediaTablet {
+        margin-bottom: 44px;
+    }
+}
+
+.map {
+    background: #626262;
+    height: 358px;
+}
